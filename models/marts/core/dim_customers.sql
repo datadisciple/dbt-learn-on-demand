@@ -1,5 +1,3 @@
-{{ config (materialized = "table")}}    -- tells dbt to build as a table (instead of a view)
-
 with customers as (
     select * from {{ ref('stg_customers') }}    -- ref() allows you to build dependencies b/w models
 ),
