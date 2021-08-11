@@ -2,8 +2,10 @@ version: 2      # good to start test .yml with this -- gives backwards comptabil
 
 models:
   - name: stg_customers
+    description: one unique customer per row
     columns:
       - name: customer_id
+        description: primary key for stg_customers
         tests:
           - unique
           - not_null
