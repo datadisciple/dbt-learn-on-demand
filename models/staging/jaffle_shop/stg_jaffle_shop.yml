@@ -1,14 +1,12 @@
-version: 2
+version: 2      # good to start test .yml with this -- gives backwards comptability for dbt in previous versions
 
 models:
   - name: stg_customers
-    description: one unique customer per row
     columns:
       - name: customer_id
-        description: primary key for stg_customers
         tests:
           - unique
-          - not_null
+          - not null
   - name: stg_orders
     columns:
       - name: status
@@ -21,5 +19,3 @@ models:
           - relationships:  # ensures that the customer_id field in stg_orders model exists as the customer_id field in the stg_customers model (referential integrity)
               to: ref('stg_customers')
               field: customer_id
-        
-
