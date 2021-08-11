@@ -1,4 +1,4 @@
-version: 2
+version: 2      # good to start test .yml with this -- gives backwards comptability for dbt in previous versions
 
 models:
   - name: stg_customers
@@ -21,5 +21,3 @@ models:
           - relationships:  # ensures that the customer_id field in stg_orders model exists as the customer_id field in the stg_customers model (referential integrity)
               to: ref('stg_customers')
               field: customer_id
-        
-
